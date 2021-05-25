@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea-grow-with-text</title>
+    
+    <style type="text/css">
+        .textarea {
+            height: auto;
+            resize: none;
+        }
+    </style>
+
+</head>
+<body>
+
+    <textarea id="the_textarea" onblur="javascript:textarea_height(the_textarea, 5);" onkeyup="javascript:textarea_height(the_textarea, 5);" style="width: 100%;" class="textarea"> </textarea>
+
+    <script>
+        // TextArea is the Id from your textarea element
+        // MaxHeight is the maximum height value
+        function textarea_height(TextArean, MaxHeight) 
+        {
+            textareaRows = TextArean.value.split("\n");
+            if(textareaRows[0] != "undefined" && textareaRows.length < MaxHeight) counter = textareaRows.length;
+            else if(textareaRows.length >= MaxHeight) counter = MaxHeight;
+            else counter = 1;
+            TextArean.rows = counter;    
+        }
+    </script>
+
+</body>
+</html>
